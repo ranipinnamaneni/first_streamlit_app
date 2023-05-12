@@ -46,6 +46,10 @@ streamlit.header("My fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
 # Let's put a pick list here so they can pick the fruit they want to include 
+
+my_fruit_sheet = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+my_fruit_sheet = my_fruit_sheet.set_index('Fruit')
+
 add_myfruit = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_display = my_fruit_list.loc[add_myfruit]
 
